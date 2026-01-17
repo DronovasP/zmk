@@ -71,7 +71,7 @@
             &kp Q      &kp W      &kp F      &kp P      &kp G          &kp J      &kp L      &kp U      &kp Y      &kp SEMI
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  A(GUI)  │  R(ALT)  │  S(CTRL) │  T(SHFT) │  D       │   │  H       │  N(SHFT) │  E(CTRL) │  I(ALT)  │  O(GUI)  │
-          HRML(A,        R,         S,         T)       &kp D          &kp H      HRMR(N,        E,         I,         O)
+          HRML(K_A,     K_R,       K_S,       K_T)      &kp D          &kp H      HRMR(K_N,      K_E,       K_I,       K_O)
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  Z       │  X       │  C       │  V       │  B       │   │  K       │  M       │  ,       │  .       │  /       │
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp K      &kp M      &kp COMMA  &kp DOT    &kp FSLH
@@ -84,10 +84,10 @@
         // LAYER 1: NAV (Hold Left Inner Thumb) - VIM Style on Right Hand
         nav_layer {
             bindings = <
-            &trans     &trans     &trans     &trans     &trans        &kp K_REDO &kp K_PASTE &kp K_COPY &kp K_CUT  &kp K_UNDO
-            &trans     &trans     &trans     &trans     &trans        &kp LEFT   &kp DOWN    &kp UP     &kp RIGHT  &kp CAPS
-            &trans     &trans     &trans     &trans     &trans        &kp HOME   &kp PG_DN   &kp PG_UP  &kp END    &kp INS
-                                             &trans     &trans        &trans     &kp DEL
+            &trans     &trans     &trans     &trans     &trans         &kp K_REDO &kp K_PASTE &kp K_COPY &kp K_CUT  &kp K_UNDO
+            &trans     &trans     &trans     &trans     &trans         &kp LEFT   &kp DOWN    &kp UP     &kp RIGHT  &kp CAPS
+            &trans     &trans     &trans     &trans     &trans         &kp HOME   &kp PG_DN   &kp PG_UP  &kp END    &kp INS
+                                             &trans     &trans         &trans     &kp DEL
             >;
         };
 
