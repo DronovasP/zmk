@@ -15,6 +15,7 @@
 // Home row mods macro
 #define HRML(k1,k2,k3,k4) &ht LSHFT k1  &ht LALT k2  &ht LCTRL k3  &ht LGUI k4
 #define HRMR(k1,k2,k3,k4) &ht RGUI k1  &ht RCTRL k2  &ht RALT k3  &ht RSHFT k4
+#define HYP(key) &kp LC(LA(LS(LG(key))))
 
 / {
     behaviors {
@@ -60,7 +61,7 @@
         // LAYER 1: NAV (Left Inner Thumb)
         nav_layer {
             bindings = <
-            &trans     &trans     &trans     &trans     &trans         &kp K_AGAIN &kp K_PASTE &kp K_COPY &kp K_CUT  &kp K_UNDO
+            HYP(1)     HYP(2)     HYP(3)     HYP(4)     HYP(5)         &kp K_AGAIN &kp K_PASTE &kp K_COPY &kp K_CUT  &kp K_UNDO
             &trans     &trans     &trans     &trans     &trans         &kp LEFT    &kp DOWN    &kp UP     &kp RIGHT  &caps_word
             &trans     &trans     &trans     &trans     &trans         &kp HOME    &kp PG_DN   &kp PG_UP  &kp END    &kp INS
                                              &trans     &trans         &trans      &kp DEL
