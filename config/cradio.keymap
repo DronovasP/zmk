@@ -61,7 +61,7 @@
         // LAYER 1: NAV (Left Inner Thumb)
         nav_layer {
             bindings = <
-            HYP(1)     HYP(2)     HYP(3)     HYP(4)     HYP(5)         &kp K_AGAIN &kp K_PASTE &kp K_COPY &kp K_CUT  &kp K_UNDO
+            HYP(N1)    HYP(N2)    HYP(N3)    HYP(N4)    HYP(N5)         &kp K_AGAIN &kp K_PASTE &kp K_COPY &kp K_CUT  &kp K_UNDO
             &trans     &trans     &trans     &trans     &trans         &kp LEFT    &kp DOWN    &kp UP     &kp RIGHT  &caps_word
             &trans     &trans     &trans     &trans     &trans         &kp HOME    &kp PG_DN   &kp PG_UP  &kp END    &kp INS
                                              &trans     &trans         &trans      &kp DEL
