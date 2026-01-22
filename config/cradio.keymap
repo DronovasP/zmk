@@ -18,6 +18,16 @@
 #define HYP(key) &kp LC(LA(LS(LG(key))))
 
 / {
+    combos {
+        compatible = "zmk,combos";
+        
+        combo_esc_left {
+            timeout-ms = <50>;
+            key-positions = <0 1>; 
+            bindings = <&kp ESC>;
+        };
+    };
+    
     behaviors {
         ht: hold_tap {
             compatible = "zmk,behavior-hold-tap";
