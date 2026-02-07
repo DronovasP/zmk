@@ -16,3 +16,20 @@ include:
     shield: cradio_right
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
     artifact-name: lc_cradio_right
+
+  - board: nice_nano_v2
+    shield: cosmos_left
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+    artifact-name: rc_cosmos_left
+  - board: nice_nano_v2
+    shield: cosmos_right
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
+    artifact-name: rc_cosmos_right
+  - board: nice_nano_v2
+    shield: cosmos_left
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
+    artifact-name: lc_cosmos_left
+  - board: nice_nano_v2
+    shield: cosmos_right
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+    artifact-name: lc_cosmos_right

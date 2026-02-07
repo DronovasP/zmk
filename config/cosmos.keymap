@@ -1,0 +1,112 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+#define BASE 0
+#define NAV 1
+#define MEDIA 2
+#define NUM 3
+#define SYM 4
+#define FUN 5
+
+// Home row mods macro
+#define HRML(k1,k2,k3,k4) &ht LSHFT k1  &ht LALT k2  &ht LCTRL k3  &ht LGUI k4
+#define HRMR(k1,k2,k3,k4) &ht RGUI k1  &ht RCTRL k2  &ht RALT k3  &ht RSHFT k4
+#define HYP(key) &kp LC(LA(LS(LG(key))))
+
+/ {
+    combos {
+        compatible = "zmk,combos";
+        
+        combo_esc_left {
+            timeout-ms = <50>;
+            key-positions = <13 14>;
+            bindings = <&kp ESC>;
+        };
+    };
+    
+    behaviors {
+        ht: hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_TAP";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <100>;
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <NAV SYM>;
+            then-layer = <FUN>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            bindings = <
+            &none     &none    &none    &none    &none    &none       &none    &none    &none    &none    &none    &none
+            &none     &kp Q    &kp W    &kp F    &kp P    &kp G       &kp J    &kp L    &kp U    &kp Y    &kp SQT  &none 
+            &none     HRML(A,  R,       S,       T)       &kp D       &kp H    HRMR(N,  E,       I,       O)       &none
+            &none     &kp Z    &kp X    &kp C    &kp V    &kp B       &kp K    &kp M    &kp COMMA &kp DOT &kp FSLH &none
+                               &none &lt MEDIA SPACE &lt NAV TAB      &lt SYM RET &lt NUM BSPC &none
+            >;
+        };
+
+        nav_layer {
+            bindings = <
+            &none     &none    &none    &none    &none    &none       &none       &none     &none     &none     &none      &none
+            &none     HYP(N1)  HYP(N2)  HYP(N3)  HYP(N4)  HYP(N5)     &kp K_AGAIN &kp K_PST &kp K_COPY &kp K_CUT &kp K_UNDO &none
+            &none     &trans   &trans   &trans   &trans   &trans      &kp LEFT    &kp DOWN  &kp UP    &kp RIGHT &kp CAPS   &none
+            &none     &trans   &trans   &trans   &trans   &trans      &kp HOME    &kp PG_DN &kp PG_UP &kp END   &kp INS    &none
+                                        &trans   &trans   &trans      &trans      &kp DEL   &trans
+            >;
+        };
+
+        media_layer {
+            bindings = <
+            &none     &none    &none    &none    &none    &none       &none    &none      &none      &none    &none    &none
+            &none     &trans   &trans   &trans   &trans   &trans      &trans   &trans     &trans     &trans   &trans   &none
+            &none     &trans   &trans   &trans   &trans   &trans      &trans   &kp C_VOL_DN &kp C_VOL_UP &trans &trans &none
+            &none     &trans   &trans   &trans   &trans   &trans      &trans   &kp C_PREV &kp C_NEXT &trans   &trans   &none
+                                        &trans   &trans   &trans      &kp C_STOP &kp C_PP &trans
+            >;
+        };
+
+        num_layer {
+            bindings = <
+            &none     &none    &none    &none    &none    &none       &none    &none    &none    &none    &none    &none
+            &none     &kp LBKT &kp N7   &kp N8   &kp N9   &kp RBKT    &trans   &trans   &trans   &trans   &trans   &none
+            &none     &kp SEMI &kp N4   &kp N5   &kp N6   &kp EQUAL   &trans   &trans   &trans   &trans   &trans   &none
+            &none     &kp GRAVE &kp N1  &kp N2   &kp N3   &kp BSLH    &trans   &trans   &trans   &trans   &trans   &none
+                                        &kp DOT  &kp N0   &trans      &trans   &trans   &trans
+            >;
+        };
+
+        sym_layer {
+            bindings = <
+            &none     &none    &none    &none    &none    &none       &none    &none    &none    &none    &none    &none
+            &none     &kp LBRC &kp AMPS &kp STAR &kp LPAR &kp RBRC    &trans   &trans   &trans   &trans   &trans   &none
+            &none     &kp COLON &kp DLLR &kp PRCNT &kp CARET &kp PLUS &trans   &trans   &trans   &trans   &trans   &none
+            &none     &kp TILDE &kp EXCL &kp AT  &kp HASH &kp PIPE    &trans   &trans   &trans   &trans   &trans   &none
+                                        &kp LPAR &kp RPAR &trans      &trans   &trans   &trans
+            >;
+        };
+
+        fun_layer {
+            bindings = <
+            &none     &none    &none    &none    &none    &none       &none    &none    &none    &none    &none    &none
+            &none     &kp F12  &kp F7   &kp F8   &kp F9   &kp PSCRN   &trans   &trans   &trans   &trans   &sys_reset &none
+            &none     &kp F11  &kp F4   &kp F5   &kp F6   &kp SLCK    &trans   &trans   &trans   &trans   &trans   &none
+            &none     &kp F10  &kp F1   &kp F2   &kp F3   &kp PAUSE   &trans   &trans   &trans   &trans   &trans   &none
+                                        &bootloader &trans &trans     &trans   &trans   &bootloader
+            >;
+        };
+    };
+};
