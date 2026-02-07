@@ -9,15 +9,13 @@
 #define SYM 4
 #define FUN 5
 
-// Home row mods macro
-#define HRML(k1,k2,k3,k4) &ht LSHFT k1  &ht LALT k2  &ht LCTRL k3  &ht LGUI k4
-#define HRMR(k1,k2,k3,k4) &ht RGUI k1  &ht RCTRL k2  &ht RALT k3  &ht RSHFT k4
+#define HRML(k1,k2,k3,k4) &ht LSHFT k1 &ht LALT k2 &ht LCTRL k3 &ht LGUI k4
+#define HRMR(k1,k2,k3,k4) &ht RGUI k1 &ht RCTRL k2 &ht RALT k3 &ht RSHFT k4
 #define HYP(key) &kp LC(LA(LS(LG(key))))
 
 / {
     combos {
         compatible = "zmk,combos";
-        
         combo_esc_left {
             timeout-ms = <50>;
             key-positions = <13 14>;
@@ -62,7 +60,7 @@
         nav_layer {
             bindings = <
             &none     &none    &none    &none    &none    &none       &none       &none     &none     &none     &none      &none
-            &none     HYP(N1)  HYP(N2)  HYP(N3)  HYP(N4)  HYP(N5)     &kp K_AGAIN &kp K_PST &kp K_COPY &kp K_CUT &kp K_UNDO &none
+            &none     HYP(N1)  HYP(N2)  HYP(N3)  HYP(N4)  HYP(N5)     &kp K_AGAIN &kp K_PASTE &kp K_COPY &kp K_CUT &kp K_UNDO &none
             &none     &trans   &trans   &trans   &trans   &trans      &kp LEFT    &kp DOWN  &kp UP    &kp RIGHT &kp CAPS   &none
             &none     &trans   &trans   &trans   &trans   &trans      &kp HOME    &kp PG_DN &kp PG_UP &kp END   &kp INS    &none
                                         &trans   &trans   &trans      &trans      &kp DEL   &trans
