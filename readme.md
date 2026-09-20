@@ -1,4 +1,4 @@
-# zmk-config
+# zmk
 
 ZMK firmware for two keyboards, built on GitHub Actions (every push → *Actions* tab → `firmware` artifact zip).
 
