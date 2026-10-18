@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MIT
 
 # Left half is the central: it plugs into the PC over USB and talks to the
-# right half over the TRRS cable (full-duplex UART).
+# right half over the TRRS cable (full-duplex UART: TX 006, RX 017).
 if SHIELD_COSMOS_LEFT
 
 config ZMK_KEYBOARD_NAME
